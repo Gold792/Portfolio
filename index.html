@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr" data-t="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prince Lanmai — Développeur web PHP / MySQL</title>
+<meta name="description" content="Prince Lanmai, développeur web PHP, Symfony et MySQL, étudiant en L3 Informatique à Montbéliard. Sites vitrines, back-offices et outils de gestion.">
+<meta name="theme-color" content="#120d09">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prince Lanmai — Développeur web PHP / MySQL">
+<meta property="og:description" content="Sites vitrines et outils de gestion en PHP et MySQL.">
+<meta property="og:image" content="https://lanmaiprince.42web.io/img/prince.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23120d09'/%3E%3Ctext x='10' y='51' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='48' fill='%23E8D8BD'%3EL%3C/text%3E%3Ccircle cx='49' cy='46' r='5.5' fill='%23c4925f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120d09;--b2:#1a130d;--ln:rgba(232,216,189,.14);--tx:#E8D8BD;--mu:#a8987f;--hi:#fbf1de;--ac:#c4925f;--btn:#E8D8BD;--btx:#2a1709;--lt:#E8D8BD;--lg:#4A2C17;--fh:'Archivo',system-ui,sans-serif;--fb:'IBM Plex Sans',system-ui,sans-serif;--fm:'IBM Plex Mono',ui-monospace,monospace;--ez:cubic-bezier(.2,.7,.2,1);color-scheme:dark}
+[data-t=light]{--bg:#f2eadb;--b2:#e9dfcb;--ln:rgba(74,44,23,.18);--tx:#2b1709;--mu:#6e5a45;--hi:#1e0f05;--ac:#8a5428;--btn:#4A2C17;--btx:#f6ecd8;--lt:#4A2C17;--lg:#f2eadb;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--tx);font:400 16.5px/1.7 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .35s,color .35s}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+.w{width:min(1180px,100% - 40px);margin:auto}
+.mono{font:500 12.5px/1.4 var(--fm);letter-spacing:.04em;color:var(--mu)}
+h1,h2,h3{font-family:var(--fh);color:var(--hi);letter-spacing:-.02em}
+h2{font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.08;margin-bottom:28px;max-width:16ch}
+h3{font-weight:700}
+p a,.ul{background:linear-gradient(var(--ac),var(--ac)) 0 100%/100% 1px no-repeat;transition:background-size .35s var(--ez),color .2s}
+p a:hover,.ul:hover{color:var(--hi);background-size:100% 2px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:6px;font:600 15px/1 var(--fb);border:1px solid var(--ln);cursor:pointer;background:none;transition:background .25s,color .25s,border-color .25s}
+.btn.p{background:var(--btn);color:var(--btx);border-color:var(--btn)}
+.btn.p:hover{filter:brightness(1.08)}.btn:not(.p):hover{border-color:var(--tx)}
+.btn .ar{transition:transform .3s var(--ez)}.btn:hover .ar{transform:translateX(4px)}
+/* apparition discrète */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ez),transform .7s var(--ez);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0);border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+header.sc{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--ln)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font:800 24px/1 var(--fh);letter-spacing:-.045em;color:var(--hi)}.brand span{color:var(--ac)}
+.lg{width:34px;height:34px}.lg rect{fill:var(--lt)}.lg .gl{fill:var(--lg);stroke:var(--lg)}
+nav ul{display:flex;gap:28px;list-style:none;font-size:14.5px}
+nav ul a{color:var(--mu);transition:color .2s;padding:6px 0;border-bottom:1px solid transparent}
+nav ul a:hover,nav ul a.on{color:var(--tx);border-color:var(--ac)}
+.ac{display:flex;align-items:center;gap:10px}
+.ib{width:40px;height:40px;border-radius:6px;border:1px solid var(--ln);background:none;cursor:pointer;display:grid;place-items:center;transition:border-color .2s}
+.ib:hover{border-color:var(--tx)}
+.ib svg{width:18px;height:18px;stroke:var(--tx);fill:none;stroke-width:1.6;stroke-linecap:round}
+#th .sn{display:none}[data-t=light] #th .sn{display:block}[data-t=light] #th .mn{display:none}
+#bg{display:none}#bg span{display:block;width:18px;height:1.6px;background:var(--tx);margin:3px 0;transition:.3s}
+/* hero */
+.hero{padding:150px 0 70px}
+.hg{display:grid;gap:44px}
+.hi{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ez),transform .9s var(--ez);transition-delay:var(--d,0s)}
+.ok .hi{opacity:1;transform:none}
+.hero .mono{margin-bottom:22px}
+h1{font-weight:800;font-size:clamp(58px,11vw,140px);line-height:.92;letter-spacing:-.045em;margin-bottom:34px}
+h1 span{display:block}
+h1 span:last-child{color:var(--ac)}
+.intro{font-size:clamp(18px,2vw,21px);line-height:1.6;max-width:34em;color:var(--tx)}
+.intro+.intro{color:var(--mu);font-size:17px;margin-top:16px}
+.bt{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:36px}
+.bt .ul{font-weight:600;font-size:15px}
+figure.ph{align-self:end}
+.ph img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;filter:saturate(.9)}
+.ph figcaption{margin-top:12px}
+/* bande */
+.mq{overflow:hidden;border-block:1px solid var(--ln);padding:16px 0;margin-top:80px}
+.mt{display:flex;width:max-content;animation:mq 60s linear infinite}
+.mt span{font:500 13px/1 var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--mu);white-space:nowrap;padding-right:28px}
+.mt span:after{content:"/";padding-left:28px;opacity:.45}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+section.s{padding:96px 0;border-top:1px solid var(--ln)}
+.sg{display:grid;gap:26px}
+.lab{font:500 13px/1.4 var(--fm);color:var(--mu);letter-spacing:.04em}
+.lab b{display:block;color:var(--tx);font-weight:500}
+/* projets */
+.cs{padding-bottom:72px;margin-bottom:72px;border-bottom:1px solid var(--ln)}
+.cs:last-child{border:0;margin:0;padding:0}
+.ch{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px;margin-bottom:22px}
+.ch h3{font-size:clamp(28px,3.6vw,40px);line-height:1.1}
+.fr{position:relative;aspect-ratio:16/9;border-radius:4px;overflow:hidden;border:1px solid var(--ln);background:var(--b2);display:grid;place-items:center;margin-bottom:30px}
+.fr span{font:500 13px var(--fm);color:var(--mu)}
+.fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ez)}
+.fr:hover img{transform:scale(1.02)}
+.cd{display:grid;gap:26px}
+.cd h4{font:500 12.5px/1.4 var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.cd p,.cd li{color:var(--tx);font-size:16px}
+.cd ul{list-style:none;display:grid;gap:10px}
+.cd li{padding-left:22px;position:relative}
+.cd li:before{content:"→";position:absolute;left:0;color:var(--ac);font-family:var(--fm);font-size:14px;top:1px}
+.stk{margin-top:18px}
+.cf{display:flex;gap:22px;flex-wrap:wrap;margin-top:22px;font-weight:600;font-size:15px}
+.sm2{display:grid;gap:44px}
+.sm2 h3{font-size:26px;margin:2px 0 10px}
+.sm2 p{color:var(--mu);font-size:16px}
+.sm2 .fr{margin-bottom:22px}
+/* à propos */
+.ab .sg>div>p{font-size:18px;max-width:38em;margin-bottom:20px;color:var(--mu)}
+.ab .sg>div>p:first-of-type{color:var(--tx);font-size:clamp(19px,2.2vw,23px);line-height:1.55}
+/* services */
+.ls{list-style:none;border-top:1px solid var(--ln)}
+.ls li{display:grid;gap:6px 30px;padding:24px 0;border-bottom:1px solid var(--ln)}
+.ls h3{font-size:20px;line-height:1.3}
+.ls p{color:var(--mu);font-size:16px}
+/* outils */
+.tools{display:grid;gap:30px}
+.tools h3{font:500 12.5px/1.4 var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin-bottom:12px}
+.tools p{font-size:17px;line-height:1.85}
+/* parcours */
+.tl{list-style:none;border-top:1px solid var(--ln)}
+.tl li{display:grid;gap:4px 30px;padding:22px 0;border-bottom:1px solid var(--ln)}
+.tl time{font:500 13px/1.6 var(--fm);color:var(--mu)}
+.tl h3{font-size:19px;line-height:1.35}
+.tl p{color:var(--mu);font-size:15.5px;margin-top:4px}
+/* contact */
+.ct p.big{font-size:19px;color:var(--mu);max-width:30em;margin-bottom:22px}
+.mail{display:inline-block;font:700 clamp(22px,2.7vw,34px)/1.15 var(--fh);letter-spacing:-.02em;color:var(--hi);margin-bottom:30px;overflow-wrap:anywhere;background:linear-gradient(var(--ac),var(--ac)) 0 100%/0 2px no-repeat;transition:background-size .45s var(--ez)}
+.mail:hover{background-size:100% 2px}
+.cg{display:grid;gap:44px}
+.bi{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#cf{display:grid;gap:16px}
+#cf label span{display:block;font:500 12.5px/1 var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin-bottom:9px;transition:color .2s}
+#cf label:focus-within span{color:var(--tx)}
+.fi{width:100%;padding:14px 16px;background:var(--b2);border:1px solid var(--ln);border-radius:6px;color:var(--tx);font:inherit;resize:vertical;transition:border-color .2s}
+.fi:focus{outline:0;border-color:var(--ac)}
+#cf .btn{justify-self:start}#cf .btn:disabled{opacity:.6;cursor:wait}
+/* toasts */
+.ts{position:fixed;z-index:300;right:20px;bottom:20px;width:min(370px,calc(100vw - 40px));display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.t{pointer-events:auto;display:flex;align-items:flex-start;gap:12px;padding:14px 12px 14px 16px;border-radius:6px;background:var(--b2);border:1px solid var(--ln);border-left:3px solid currentColor;box-shadow:0 14px 34px -14px rgba(0,0,0,.5);animation:tin .35s var(--ez) both}
+.t.o{animation:tout .25s ease forwards}
+@keyframes tin{from{opacity:0;transform:translateY(10px)}}@keyframes tout{to{opacity:0;transform:translateY(6px)}}
+.t.ok{color:#8fc79a}.t.er{color:#e0987a}.t.in{color:var(--ac)}
+[data-t=light] .t.ok{color:#2f7a45}[data-t=light] .t.er{color:#b4552f}
+.tb{flex:1;min-width:0;color:var(--tx)}.tb b{display:block;font:600 14.5px/1.35 var(--fb)}.tb p{font-size:13.5px;line-height:1.5;color:var(--mu);margin-top:2px}
+.tx2{flex:none;width:26px;height:26px;border-radius:4px;border:0;background:none;cursor:pointer;display:grid;place-items:center;color:var(--mu)}
+.tx2:hover{color:var(--tx)}.tx2 svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round}
+::selection{background:var(--ac);color:var(--bg)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+footer{padding:26px 0 calc(26px + env(safe-area-inset-bottom,0));border-top:1px solid var(--ln)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:820px){
+#bg{display:grid}
+nav ul{position:fixed;top:calc(68px + env(safe-area-inset-top,0));left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--ln);max-height:0;overflow:hidden;transition:max-height .4s var(--ez),padding .4s;padding:0 20px}
+nav ul.o{max-height:400px;padding:8px 20px 16px}
+nav ul a{display:block;padding:14px 0;font-size:17px;border:0}
+#bg.o span:nth-child(1){transform:translateY(4.6px) rotate(45deg)}#bg.o span:nth-child(2){opacity:0}#bg.o span:nth-child(3){transform:translateY(-4.6px) rotate(-45deg)}
+figure.ph{max-width:420px}}
+@media(min-width:821px){
+.hg{grid-template-columns:1.45fr .8fr;gap:64px;align-items:end}
+.sg{grid-template-columns:200px 1fr;gap:60px}
+.lab{position:sticky;top:100px;align-self:start}
+.cd{grid-template-columns:.85fr 1.15fr;gap:48px}
+.sm2{grid-template-columns:1fr 1fr;gap:40px}
+.ls li{grid-template-columns:.9fr 1.1fr;align-items:baseline}
+.tools{grid-template-columns:repeat(3,1fr)}
+.tl li{grid-template-columns:170px 1fr}
+.cg{grid-template-columns:1fr 1fr;align-items:start;gap:64px}}
+@media(prefers-reduced-motion:reduce){.rv,.hi{opacity:1;transform:none;transition:none}.mt{animation:none}html{scroll-behavior:auto}.t{animation:none}}
+</style>
+<noscript><style>.rv,.hi{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<div class="ts" id="ts" role="region" aria-label="Notifications" aria-live="polite"></div>
+
+<header id="hd"><div class="w nav">
+<a href="#top" class="brand" aria-label="LANp, accueil">LANp<span>.</span></a>
+<nav aria-label="Navigation"><ul id="mn"><li><a href="#projets">Projets</a></li><li><a href="#apropos">À propos</a></li><li><a href="#services">Ce que je fais</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+<div class="ac"><button class="ib" id="th" aria-label="Changer de thème"><svg class="mn" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg><svg class="sn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<button class="ib" id="bg" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w">
+<div class="hg">
+<div>
+<p class="mono hi">Développeur web · PHP / MySQL · Montbéliard</p>
+<h1 class="hi" style="--d:.1s"><span>Prince</span><span>Lanmai</span></h1>
+<p class="intro hi" style="--d:.25s">Je développe des sites et des outils de gestion en PHP et MySQL : le formulaire, la base de données, le back-office et les mails qui partent tout seuls.</p>
+<p class="intro hi" style="--d:.35s">Je suis en 3e année de licence informatique à l’UFR STGI de Montbéliard. Avant le code, j’ai travaillé dans l’électricité et la réparation électronique.</p>
+<div class="bt hi" style="--d:.45s"><a class="btn p" href="#projets">Voir mes projets <span class="ar">→</span></a><a class="ul" href="pdf/CV_LANMAI_Prince.pdf" download>Télécharger mon CV (PDF)</a></div>
+</div>
+<figure class="ph hi" style="--d:.2s"><img src="img/prince.webp" width="900" height="900" alt="Portrait de Prince Lanmai"><figcaption class="mono">Prince Lanmai, développeur web</figcaption></figure>
+</div>
+<div class="mq hi" style="--d:.55s" aria-hidden="true"><div class="mt" id="mt"><span>PHP</span><span>Symfony</span><span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>HTML / CSS</span><span>WordPress</span><span>Git</span><span>Arduino</span><span>C++</span></div></div>
+</div></section>
+
+<section id="projets" class="s"><div class="w sg">
+<p class="lab rv"><b>Projets</b>Une sélection de 4</p>
+<div>
+
+<article class="cs">
+<div class="ch rv"><h3>Ivoire Propulsion</h3><span class="mono">Site vitrine + gestion des adhésions</span></div>
+<div class="fr rv"><span>capture à venir</span><img src="img/ivoire.png" width="1280" height="720" loading="lazy" alt="Capture du site Ivoire Propulsion" onerror="this.remove()"></div>
+<div class="cd">
+<div class="rv"><h4>Le projet</h4><p>Un réseau d’affaires en Côte d’Ivoire qui voulait présenter son activité et gérer ses adhésions en ligne, de l’inscription jusqu’à l’entrée dans le groupe WhatsApp des membres.</p><p class="mono stk">PHP natif · MySQL · API SMTP Brevo · Wave</p></div>
+<div class="rv" style="--d:.08s"><h4>Ce que j’ai développé</h4><ul>
+<li>Un formulaire d’adhésion en deux étapes, enregistré en base MySQL.</li>
+<li>Un mail automatique au nouveau membre avec son lien de paiement Wave, et une alerte pour l’administrateur.</li>
+<li>Un back-office responsive : tableau de bord, thème clair ou sombre, export Excel et PDF.</li>
+<li>Une validation manuelle du paiement qui déclenche un mail de confirmation avec le lien du groupe WhatsApp.</li>
+<li>Des liens WhatsApp générés selon l’indicatif du pays de chaque membre.</li>
+</ul></div>
+</div>
+<div class="cf rv"><a class="ul" href="https://www.ivoirepropulsion.com" target="_blank" rel="noopener">ivoirepropulsion.com ↗</a></div>
+</article>
+
+<article class="cs">
+<div class="ch rv"><h3>DEC</h3><span class="mono">Site catalogue</span></div>
+<div class="fr rv"><span>capture à venir</span><img src="img/dec.PNG" width="1280" height="720" loading="lazy" alt="Capture du site DEC" onerror="this.remove()"></div>
+<div class="cd">
+<div class="rv"><h4>Le projet</h4><p>Un catalogue en ligne pour DEC (Les Dévoués de l’Évangile du Christ), qui propose des packs de sonorisation.</p><p class="mono stk">PHP · MySQL · WhatsApp</p></div>
+<div class="rv" style="--d:.08s"><h4>Ce que j’ai développé</h4><ul>
+<li>Les pages du catalogue et des offres promotionnelles, gérées depuis la base de données.</li>
+<li>La demande de devis en un clic, qui ouvre directement une conversation WhatsApp.</li>
+</ul></div>
+</div>
+<div class="cf rv"><a class="ul" href="https://decenaction.com" target="_blank" rel="noopener">decenaction.com ↗</a></div>
+</article>
+
+<div class="cs sm2">
+<article class="rv">
+<div class="fr"><span>capture à venir</span><img src="img/epargne.png" width="1280" height="720" loading="lazy" alt="Capture du projet Épargne collaborative" onerror="this.remove()"></div>
+<span class="mono">Application web · Symfony</span>
+<h3>Épargne collaborative</h3>
+<p>Une plateforme de cagnottes en groupe : on crée un groupe, chacun contribue, et tout le monde voit l’historique des opérations.</p>
+<div class="cf"><a class="ul" href="https://github.com/Gold792/Epargne-Collaborative" target="_blank" rel="noopener">Code sur GitHub ↗</a></div>
+</article>
+<article class="rv" style="--d:.1s">
+<div class="fr"><span>capture à venir</span><img src="img/arduino.png" width="1280" height="720" loading="lazy" alt="Photo du prototype de domotique Arduino" onerror="this.remove()"></div>
+<span class="mono">Électronique · Arduino / C++</span>
+<h3>Domotique Arduino</h3>
+<p>Un prototype pour automatiser des équipements électriques et suivre leur consommation d’énergie.</p>
+</article>
+</div>
+
+</div>
+</div></section>
+
+<section id="apropos" class="s ab"><div class="w sg">
+<p class="lab rv"><b>À propos</b>Du circuit au code</p>
+<div>
+<h2 class="rv">J’ai appris à dépanner avant d’apprendre à coder.</h2>
+<p class="rv">J’ai commencé par l’électronique : cartes, câbles, diagnostics. Ce métier m’a appris à chercher la vraie cause d’une panne au lieu de cacher le symptôme. C’est comme ça que je travaille sur mon code aujourd’hui.</p>
+<p class="rv">Je développe des sites et des applications web en PHP et MySQL pour des clients en Côte d’Ivoire, et j’ai fait un stage en développement web au Ministère de l’Économie et des Finances du Bénin. Depuis septembre 2026, je suis en L3 Informatique, parcours Produits et Services Multimédia, à Montbéliard.</p>
+<p class="rv">Sur mes projets clients, je m’occupe de tout : comprendre le besoin, construire la base de données, développer, puis mettre en ligne.</p>
+</div>
+</div></section>
+
+<section id="services" class="s"><div class="w sg">
+<p class="lab rv"><b>Ce que je fais</b>Pour des clients ou des équipes</p>
+<div>
+<ul class="ls">
+<li class="rv"><h3>Sites vitrines et catalogues</h3><p>Une présentation claire de votre activité, lisible sur téléphone, avec un contact direct par formulaire ou WhatsApp.</p></li>
+<li class="rv"><h3>Back-offices et outils de gestion</h3><p>Inscriptions, validations, mails automatiques, exports Excel et PDF : de quoi suivre chaque demande sans tableur à côté.</p></li>
+<li class="rv"><h3>Applications web sur mesure</h3><p>Comptes utilisateurs, logique métier et base de données bien structurée, en PHP natif ou avec Symfony.</p></li>
+<li class="rv"><h3>Prototypes électroniques</h3><p>Capteurs et microcontrôleurs Arduino pour tester une idée matérielle.</p></li>
+</ul>
+<div class="tools" style="margin-top:56px">
+<div class="rv"><h3>Web</h3><p>PHP, Symfony, Laravel, MySQL, JavaScript, HTML, CSS, WordPress</p></div>
+<div class="rv" style="--d:.06s"><h3>Outils et services</h3><p>Git, GitHub, API SMTP (Brevo), paiement en ligne (Wave), WhatsApp</p></div>
+<div class="rv" style="--d:.12s"><h3>Électronique</h3><p>Arduino, C++, maintenance informatique, réseaux, électricité bâtiment</p></div>
+</div>
+</div>
+</div></section>
+
+<section id="parcours" class="s"><div class="w sg">
+<p class="lab rv"><b>Parcours</b>Formation et expériences</p>
+<div>
+<ul class="tl">
+<li class="rv"><time>2026 – 2027</time><div><h3>Licence 3 Informatique, parcours Produits et Services Multimédia</h3><p>UFR STGI, Montbéliard</p></div></li>
+<li class="rv"><time>2025</time><div><h3>Licence professionnelle en Systèmes informatiques et logiciels</h3><p>UATM / GASA-Formation, Bénin</p></div></li>
+<li class="rv"><time>Mars – mai 2025</time><div><h3>Stage en développement web</h3><p>Ministère de l’Économie et des Finances du Bénin</p></div></li>
+<li class="rv"><time>2020 – 2022</time><div><h3>Électricité, électronique et maintenance</h3><p>Land Electrical Service, Leader Électronique, Star Technologie, Aquapro : installation électrique, dépannage électronique et GSM, maintenance informatique, Arduino.</p></div></li>
+<li class="rv"><time>2021 – 2022</time><div><h3>CAP Électricité, Bac et diplôme de technicien en électronique</h3><p>Lycée technique et professionnel de Bopa</p></div></li>
+</ul>
+</div>
+</div></section>
+
+<section id="contact" class="s ct"><div class="w sg">
+<p class="lab rv"><b>Contact</b>Mail, LinkedIn ou formulaire</p>
+<div class="cg">
+<div class="rv">
+<h2>Un projet ou une question ?</h2>
+<p class="big">Décrivez-moi votre besoin en quelques lignes. Je vous réponds par mail.</p>
+<a class="mail" href="mailto:lanmaiprince@gmail.com">lanmaiprince@gmail.com</a>
+<div class="bt" style="margin-top:0"><button class="btn" id="cp" type="button"><svg viewBox="0 0 24 24" aria-hidden="true" class="bi"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg>Copier l’adresse</button><a class="btn" href="https://www.linkedin.com/in/prince-lanmai" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://github.com/Gold792" target="_blank" rel="noopener">GitHub ↗</a></div>
+</div>
+<form id="cf" class="rv" style="--d:.1s" novalidate>
+<label><span>Nom</span><input class="fi" type="text" name="name" autocomplete="name" required></label>
+<label><span>Email</span><input class="fi" type="email" name="email" autocomplete="email" required></label>
+<label><span>Sujet</span><input class="fi" type="text" name="subject"></label>
+<label><span>Message</span><textarea class="fi" name="message" rows="5" required></textarea></label>
+<input type="text" name="hp_field" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+<button class="btn p" type="submit" id="sb"><span id="sbt">Envoyer</span><span class="ar">→</span></button>
+</form>
+</div>
+</div></section>
+</main>
+<footer><div class="w mono"><span>© 2026 Prince Lanmai · LANp.</span><a href="#top" class="ul">Haut de page ↑</a></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+/* EmailJS : variables du template {{name}} {{email}} {{subject}} {{message}} */
+var EMAILJS={publicKey:'qLw00052iR9V7_D3u',serviceId:'service_ln67f07',templateId:'template_9kbkx4v'};
+(function(){
+var D=document,B=D.body,H=D.documentElement,$=function(s,c){return(c||D).querySelector(s)},$$=function(s,c){return[].slice.call((c||D).querySelectorAll(s))};
+/* thème */
+try{var s=localStorage.getItem('t');if(s)H.dataset.t=s}catch(e){}
+function meta(){$('meta[name=theme-color]').content=H.dataset.t==='light'?'#f2eadb':'#120d09'}meta();
+$('#th').addEventListener('click',function(){H.dataset.t=H.dataset.t==='light'?'dark':'light';try{localStorage.setItem('t',H.dataset.t)}catch(e){}meta()});
+/* menu mobile */
+var bg=$('#bg'),mn=$('#mn');
+bg.addEventListener('click',function(){var o=mn.classList.toggle('o');bg.classList.toggle('o',o);bg.setAttribute('aria-expanded',o)});
+mn.addEventListener('click',function(e){if(e.target.tagName==='A'){mn.classList.remove('o');bg.classList.remove('o');bg.setAttribute('aria-expanded',false)}});
+/* entrée du hero */
+requestAnimationFrame(function(){B.classList.add('ok')});
+/* bande */
+var mt=$('#mt');mt.innerHTML+=mt.innerHTML;
+/* apparitions au scroll */
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+$$('.rv').forEach(function(e){io.observe(e)});
+/* menu actif + header */
+var ids=$$('nav ul a'),so=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)ids.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+$$('main section[id]').forEach(function(e){so.observe(e)});
+var hd=$('#hd');function sc(){hd.classList.toggle('sc',scrollY>30)}addEventListener('scroll',sc,{passive:true});sc();
+/* toasts */
+var ts=$('#ts'),TI={ok:'<path d="M20 6 9 17l-5-5"/>',er:'<path d="M12 8v5M12 16.5v.01"/>',"in":'<path d="M12 11v5M12 7.5v.01"/>'};
+function kill(t){if(!t||t.k)return;t.k=1;t.classList.add('o');setTimeout(function(){t.remove()},260)}
+function toast(type,title,text,ms){ms=ms||5000;while(ts.children.length>=3)kill(ts.firstChild);
+ var t=D.createElement('div');t.className='t '+type;t.setAttribute('role',type==='er'?'alert':'status');
+ t.innerHTML='<div class="tb"><b></b><p></p></div><button class="tx2" type="button" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>';
+ $('b',t).textContent=title;$('p',t).textContent=text;ts.appendChild(t);
+ var id=setTimeout(function(){kill(t)},ms);
+ $('.tx2',t).addEventListener('click',function(){clearTimeout(id);kill(t)})}
+/* copie de l’adresse */
+var cp=$('#cp');cp.addEventListener('click',function(){var m='lanmaiprince@gmail.com',ok=function(){toast('ok','Adresse copiée',m,3000)},no=function(){toast('er','Copie impossible','Sélectionnez l’adresse et copiez-la à la main.')};
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(m).then(ok,no);else no()});
+/* formulaire */
+var cf=$('#cf'),sb=$('#sb'),sbt=$('#sbt');
+cf.addEventListener('submit',function(e){e.preventDefault();
+ if(cf.hp_field.value){toast('ok','Message envoyé','Merci, je vous réponds rapidement.');cf.reset();return}
+ if(!cf.checkValidity()){var bad=cf.querySelector(':invalid');if(bad)bad.focus();toast('er','Formulaire incomplet','Il manque votre nom, un email valide ou votre message.');return}
+ if(!window.emailjs){toast('er','Envoi indisponible','Écrivez-moi directement à lanmaiprince@gmail.com.');return}
+ sb.disabled=true;sbt.textContent='Envoi…';
+ emailjs.sendForm(EMAILJS.serviceId,EMAILJS.templateId,cf,{publicKey:EMAILJS.publicKey}).then(function(){toast('ok','Message envoyé','Merci, je vous réponds rapidement.');cf.reset()},function(er){console.error('EmailJS :',er);toast('er','Envoi impossible','Le message n’est pas parti'+(er&&er.status?' (code '+er.status+')':'')+'. Écrivez-moi directement par mail.',7000)}).finally(function(){sb.disabled=false;sbt.textContent='Envoyer'})});
+})();
+</script>
+</body>
+</html>
